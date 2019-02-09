@@ -13,7 +13,7 @@ const data = [
     { name: 'hockey', parent: 'sport', amount: 3 },
     { name: 'baseball', parent: 'sport', amount: 5 },
     { name: 'tennis', parent: 'sport', amount: 6 },
-    { name: 'f1', parent: 'sport', amount: 1 },
+    { name: 'karate', parent: 'sport', amount: 1 },
     { name: 'house', parent: 'music', amount: 3 },
     { name: 'rock', parent: 'music', amount: 2 },
     { name: 'punk', parent: 'music', amount: 5 },
@@ -57,3 +57,11 @@ nodes.append('circle')
     .attr('stroke', 'white')
     .attr('stroke-width', 2)
     .attr('fill', 'purple')
+
+nodes.filter(d => !d.children)
+    .append('text')
+    .attr('text-anchor', 'middle')
+    .attr('dy', '0.3em')
+    .attr('fill', 'white')
+    .attr('font-size', d => d.value * 5)
+    .text(d => d.data.name)
